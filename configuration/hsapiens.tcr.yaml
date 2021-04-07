@@ -1,0 +1,22 @@
+---
+adapter_trim: 
+  path: /data/Software/AdapterTrimmer/bin/adapter_trim
+  sequences: [AGATCGGAAGAG, CTGTCTCTTATA]
+  minimum_matches: 2
+  maximum_mismatches: 2
+  minimum_bases_remaining: 100
+
+pear: 
+  path: /data/Software/PEAR/bin/pear
+
+igblastn: 
+  path: /data/Software/ncbi-igblast-1.14.0/bin/igblastn
+  env: /data/Software/ncbi-igblast-1.14.0/
+  db-V: /data/SingleCell/reference/IMGT-V-Quest/TR/blast/V.fasta
+  db-D: /data/SingleCell/reference/IMGT-V-Quest/TR/blast/D.fasta
+  db-J: /data/SingleCell/reference/IMGT-V-Quest/TR/blast/J.fasta
+  organism: human
+  auxilary: /data/Software/ncbi-igblast-1.14.0/optional_file/human_gl.aux
+
+
+

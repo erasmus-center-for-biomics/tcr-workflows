@@ -1,0 +1,49 @@
+---
+adapter_trim: 
+  path: /data/Software/AdapterTrimmer/bin/adapter_trim
+  sequences: [AGATCGGAAGAG, CTGTCTCTTATA]
+  minimum_matches: 2
+  maximum_mismatches: 2
+  minimum_bases_remaining: 19
+
+samtools: 
+  path: /data/Germline/tools/samtools-1.7/samtools
+
+bgzip: 
+  path: /data/Software/samtools-1.6/htslib-1.6/bgzip
+
+hisat2: 
+  path: /data/Software/hisat2-2.1.0/hisat2
+  reference: /data/Reference/indexes/HomoSapiens_GRCh38/hisat2/grch38_tran/genome_tran
+
+add_tags: 
+  path: python3 /data/Software/python/pysc/bin/pysc add-sam-tags
+  annotation: welllist.txt
+  barcode-field: 7
+
+sam_to_bed: 
+  path: python3 /data/Software/python/pyngs/bin/pyngs_tools cigar-to-bed
+  operations: [M]
+  tags: [__sample__, bc, sm]
+
+extract_columns: 
+  path: python3 /data/Software/python/pyngs/bin/pyngs_tools extract-from-columns
+  columns: [8, 14, 3]
+  encodings: [none, gtf, gff]
+  fields: [X, "gene_biotype,gene_name,gene_id,transcript_id", "sm,bc,rw,cl,READNAME"]
+
+extract_columns_quantify: 
+  path: python3 /data/Software/python/pyngs/bin/pyngs_tools extract-from-columns
+  columns: [0, 1, 3, 2, 5, 6, 7, 8, 9]
+  encodings: [none, none, none, none, none, none, none, none, none]
+  fields: [X, X, X, X, X, X, X, X, X]
+
+count_last_column: 
+  path: python3 /data/Software/python/pyngs/bin/pyngs_tools count-last-column
+
+bedtools_intersect: 
+  path: /data/Software/bedtools-2.27.1/bin/bedtools intersect
+  reference: /data/Reference/indexes/HomoSapiens_GRCh38/ensembl_96/Homo_sapiens.GRCh38.96.srt.gtf.gz
+  options: [-f, 1.0, -s]
+
+
