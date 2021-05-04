@@ -11,7 +11,7 @@ bgzip:
   path: bgzip
 hisat2: 
   path: hisat2
-  reference: /data/Reference/indexes/HomoSapiens_GRCh38/hisat2/grch38_tran/genome_tran
+  reference: /nfs/research/biomics/References/Homo_sapiens_GRCh38/hisat2/grch38_snp_tran/genome_snp_tran
 add_tags: 
   path: pysc add-sam-tags
   annotation: welllist.txt
@@ -34,7 +34,7 @@ count_last_column:
   path: pyngs_tools count-last-column
 bedtools_intersect: 
   path: bedtools intersect
-  reference: /data/Reference/indexes/HomoSapiens_GRCh38/ensembl_96/Homo_sapiens.GRCh38.96.srt.gtf.gz
+  reference: /nfs/research/biomics/References/Homo_sapiens_GRCh38/transcripts/ensembl_101/Homo_sapiens.GRCh38.101.ccds.gtf.gz
   options: [-f, 1.0, -s]
 
 
