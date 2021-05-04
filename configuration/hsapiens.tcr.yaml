@@ -1,14 +1,12 @@
 ---
 adapter_trim: 
-  path: /data/Software/AdapterTrimmer/bin/adapter_trim
+  path: adapter_trim
   sequences: [AGATCGGAAGAG, CTGTCTCTTATA]
   minimum_matches: 2
   maximum_mismatches: 2
   minimum_bases_remaining: 100
-
 pear: 
-  path: /data/Software/PEAR/bin/pear
-
+  path: pear
 igblastn: 
   path: /data/Software/ncbi-igblast-1.14.0/bin/igblastn
   env: /data/Software/ncbi-igblast-1.14.0/
