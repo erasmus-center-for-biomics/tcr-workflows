@@ -21,11 +21,15 @@ include: "../rules/trim.smk"
 include: "../rules/hisat2.smk"
 include: "../rules/samtools.smk"
 include: "../rules/quantify.smk"
+include: "../rules/qc.smk"
+
 
 rule:
     input:
         bam=expand("hisat2/{basename}_R1.bam", basename=samples),
         bai=expand("hisat2/{basename}_R1.bam.bai", basename=samples),
+        rpc=expand("hisat2/{basename}_R1.rpc", basename=samples),
+        mpc=expand("hisat2/{basename}_R1.mpc", basename=samples),
         flagstats=expand("SAMtools/hisat2/{basename}_R1.flagstat.txt", basename=samples),
         overlap=expand("Quantification/Overlap/{basename}_R1.tsv.gz", basename=samples),
         exonic=expand("Quantification/{basename}_R1.exon.tsv.gz", basename=samples),
@@ -33,3 +37,4 @@ rule:
         """
         find . -exec md5sum {{}} \; > expression.md5
         """
+
