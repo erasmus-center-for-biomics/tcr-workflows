@@ -1,9 +1,9 @@
 
 rule qc_reads_per_cell:
     input:
-        "hisat/{basename}.bam"
+        "hisat2/{basename}.bam"
     output:
-        "hisat/{basename}.rpc"
+        "hisat2/{basename}.rpc"
     shell:
         """
         (
@@ -23,9 +23,9 @@ rule qc_reads_per_cell:
 
 rule qc_mapped_per_cell:
     input:
-        "hisat/{basename}.bam"
+        "hisat2/{basename}.bam"
     output:
-        "hisat/{basename}.mpc"
+        "hisat2/{basename}.mpc"
     shell:
         """
         (
