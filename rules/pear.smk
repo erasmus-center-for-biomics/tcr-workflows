@@ -1,12 +1,12 @@
 rule pear:
     input:
-        forward="trim/{basename}_R1.fastq",
-        reverse="trim/{basename}_R2.fastq"
+        fwd="trim/{basename}_R1.fastq",
+        rev="trim/{basename}_R2.fastq"
     output:
         assembled="pear/{basename}.assembled.fastq",
         discarded="pear/{basename}.discarded.fastq",
-        forward="pear/{basename}.unassembled.forward.fastq",
-        reverse="pear/{basename}.unassembled.reverse.fastq"
+        fwd="pear/{basename}.unassembled.forward.fastq",
+        rev="pear/{basename}.unassembled.reverse.fastq"
     params:
         basename="pear/{basename}"
     resources:
@@ -14,7 +14,7 @@ rule pear:
     shell:
         """
         {config[pear][path]} \
-            -f "{input.forward}" \
-            -r "{input.reverse}" \
+            -f "{input.fwd}" \
+            -r "{input.rev}" \
             -o "{params.basename}"
         """
