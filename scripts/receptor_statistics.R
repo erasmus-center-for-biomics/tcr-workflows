@@ -131,7 +131,7 @@ yld_plt <- all_tbl %>%
   ggplot(aes(x = sample, y = fragments/1e3, fill = type)) +
   geom_bar(stat = 'identity', position = 'dodge', colour = 'gray20') +
   labs(y = 'Clusters (K)') +
-  scale_y_continuous(breaks = seq(0, 10000, 10)) +
+  scale_y_continuous(breaks = seq(0, 10000, 50)) +
   theme_light()
 
 ggsave(
