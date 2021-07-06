@@ -2,7 +2,7 @@
 
 ## Description
 
-A pipeline to analyze single cell TCR data generated with the ICELL8.
+A pipeline to analyze single cell TCR data generated with the ICELL8. For the demultiplexing the [`pysc` script](https://github.com/erasmus-center-for-biomics/pysc) is used. 
 
 ## Quick-start
 
